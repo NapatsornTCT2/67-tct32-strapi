@@ -871,6 +871,36 @@ export interface ApiSubjectSubject extends Schema.CollectionType {
   };
 }
 
+export interface ApiSubjectMathSubjectMath extends Schema.CollectionType {
+  collectionName: 'subject_maths';
+  info: {
+    singularName: 'subject-math';
+    pluralName: 'subject-maths';
+    displayName: 'SubjectMath';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subject-math.subject-math',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subject-math.subject-math',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTeacherTeacher extends Schema.CollectionType {
   collectionName: 'teachers';
   info: {
@@ -922,6 +952,7 @@ declare module '@strapi/types' {
       'api::class-room.class-room': ApiClassRoomClassRoom;
       'api::student.student': ApiStudentStudent;
       'api::subject.subject': ApiSubjectSubject;
+      'api::subject-math.subject-math': ApiSubjectMathSubjectMath;
       'api::teacher.teacher': ApiTeacherTeacher;
     }
   }

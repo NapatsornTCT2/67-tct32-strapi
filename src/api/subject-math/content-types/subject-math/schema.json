@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subject_maths",
+  "info": {
+    "singularName": "subject-math",
+    "pluralName": "subject-maths",
+    "displayName": "SubjectMath"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
