@@ -4,7 +4,8 @@
   "info": {
     "singularName": "student",
     "pluralName": "students",
-    "displayName": "Student"
+    "displayName": "Student",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,6 +15,15 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "classrooms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::class-room.class-room",
+      "mappedBy": "student"
     }
   }
 }
