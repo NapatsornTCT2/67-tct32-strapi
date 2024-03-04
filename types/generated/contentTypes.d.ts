@@ -793,6 +793,22 @@ export interface ApiClassClass extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
+    class: Attribute.String;
+    students: Attribute.Relation<
+      'api::class.class',
+      'manyToMany',
+      'api::student.student'
+    >;
+    teachers: Attribute.Relation<
+      'api::class.class',
+      'manyToMany',
+      'api::teacher.teacher'
+    >;
+    subjects: Attribute.Relation<
+      'api::class.class',
+      'manyToMany',
+      'api::subject.subject'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -871,6 +887,11 @@ export interface ApiStudentStudent extends Schema.CollectionType {
       'oneToMany',
       'api::class-room.class-room'
     >;
+    classes: Attribute.Relation<
+      'api::student.student',
+      'manyToMany',
+      'api::class.class'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -911,6 +932,11 @@ export interface ApiSubjectSubject extends Schema.CollectionType {
       'api::subject.subject',
       'manyToOne',
       'api::class-room.class-room'
+    >;
+    classes: Attribute.Relation<
+      'api::subject.subject',
+      'manyToMany',
+      'api::class.class'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -977,6 +1003,11 @@ export interface ApiTeacherTeacher extends Schema.CollectionType {
       'api::teacher.teacher',
       'manyToOne',
       'api::subject.subject'
+    >;
+    classes: Attribute.Relation<
+      'api::teacher.teacher',
+      'manyToMany',
+      'api::class.class'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

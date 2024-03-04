@@ -21,6 +21,12 @@
       "relation": "manyToOne",
       "target": "api::subject.subject",
       "inversedBy": "teachers"
+    },
+    "classes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::class.class",
+      "mappedBy": "teachers"
     }
   }
 }

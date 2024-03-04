@@ -27,6 +27,12 @@
       "relation": "manyToOne",
       "target": "api::class-room.class-room",
       "inversedBy": "subjects"
+    },
+    "classes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::class.class",
+      "mappedBy": "subjects"
     }
   }
 }

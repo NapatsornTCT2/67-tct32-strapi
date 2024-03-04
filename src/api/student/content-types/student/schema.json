@@ -24,6 +24,12 @@
       "relation": "oneToMany",
       "target": "api::class-room.class-room",
       "mappedBy": "student"
+    },
+    "classes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::class.class",
+      "mappedBy": "students"
     }
   }
 }
